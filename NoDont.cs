@@ -1,25 +1,26 @@
-﻿using UnityEngine;
-using DisguiseyBoi = UnityEngine.RenderTexture;
+﻿using DisguiseyBoi = UnityEngine.RenderTexture;
 using PixellyBoi = UnityEngine.Graphics;
+using ShadyBoi = UnityEngine.Shader;
+using BadBoi = UnityEngine.MonoBehaviour;
+using PoorDesign = UnityEngine.Material;
 
 namespace FunTimesMod {
-    class NoDont : MonoBehaviour {
-        private Material seizurePlease;
-        public Shader youCantEscape;
-        private Vector4 colorsAreScary;
+    class NoDont : BadBoi {
+        private PoorDesign seizurePlease;
+        public ShadyBoi youCantEscape;
         private float rainbowBoi;
         private void Start() {
-            seizurePlease = new Material(youCantEscape);
-            colorsAreScary.x = 0;
+            seizurePlease = new PoorDesign(youCantEscape);
             rainbowBoi = 0;
         }
         private void OnRenderImage(DisguiseyBoi normalBoi, DisguiseyBoi whereWeDropping) {
-            seizurePlease.SetVector("_HSVAAdjust", colorsAreScary);
+            seizurePlease.SetFloat("_RainbowBoi", rainbowBoi);
             PixellyBoi.Blit(normalBoi, whereWeDropping, seizurePlease);
         }
         private void Update() {
-            rainbowBoi += 1 / 360 * 60;
-            colorsAreScary.x = rainbowBoi;
+            rainbowBoi += 1f / 360f;
+            if (rainbowBoi > 1)
+                rainbowBoi = 0;
         }
     }
 }
