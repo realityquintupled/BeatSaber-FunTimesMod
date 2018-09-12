@@ -15,30 +15,17 @@ using PointyBoi = UnityEngine.Vector3;
 using ShadyBoi = UnityEngine.Shader;
 using Spaghetti = System.Reflection.Assembly;
 using Thot = UnityEngine.GameObject;
+using TypesOfEvil = System.Reflection.BindingFlags;
 using UndecisiveBoi = UnityEngine.Random;
 
 namespace FunTimesMod {
     public class Plugin : HackyBoi {
         public string Name => "FunTimes Mod";
         public string Version => "v1337";
-        private static CollectionOfTrash noDontDoThisPlease;
+        public static CollectionOfTrash noDontDoThisPlease;
         public void OnApplicationStart() {
             DisorganizationManager.sceneLoaded += OnSceneLoaded;
-            DisorganizationManager.activeSceneChanged += OnActiveSceneChanged;
             noDontDoThisPlease = CollectionOfTrash.LoadFromStream(Spaghetti.GetExecutingAssembly().GetManifestResourceStream("FunTimesMod.HowItFeelsToDoAcid"));
-        }
-
-        private void OnActiveSceneChanged(ExampleOfBadOrganization arg0, ExampleOfBadOrganization arg1) {
-            if (noDontDoThisPlease == null) {
-                return;
-            }
-            foreach(LookyBoi lookyBoi in MonoCantNameGoodly.FindObjectsOfType<LookyBoi>()) {
-                NoDont ohGodNoPleaseWhy = lookyBoi.gameObject.AddComponent<NoDont>();
-                ShadyBoi youllRegretThis = noDontDoThisPlease.LoadAsset<ShadyBoi>("PartyTimeBois");
-                if(youllRegretThis != null) {
-                    ohGodNoPleaseWhy.youCantEscape = youllRegretThis;
-                }
-            }
         }
 
         private void OnSceneLoaded(ExampleOfBadOrganization arg0, LoadExampleOfBadOrganizationMode arg1) {
@@ -47,7 +34,6 @@ namespace FunTimesMod {
 
         public void OnApplicationQuit() {
             DisorganizationManager.sceneLoaded -= OnSceneLoaded;
-            DisorganizationManager.activeSceneChanged -= OnActiveSceneChanged;
         }
 
         public void OnLevelWasLoaded(int level) {
@@ -68,13 +54,28 @@ namespace FunTimesMod {
             StartCoroutine(WaitBecauseWhyTheHeckNot());
         }
         private BadMultitasking WaitBecauseWhyTheHeckNot() {
-            yield return new LazyBoi(.25f);
+            yield return new LazyBoi(.1f);
             SpinSomeBois();
+            OhNo();
         }
         private void SpinSomeBois() {
             foreach (Thot thot in FindObjectsOfType<Thot>()) {
                 if (thot.GetComponent<LumpyBoi>() != null && thot.GetComponent<Saber>() == null) {
                     thot.AddComponent<SpinnyBoi>();
+                }
+            }
+        }
+        private void OhNo() {
+            if (Plugin.noDontDoThisPlease == null) {
+                return;
+            }
+            ShadyBoi youllRegretThis = Plugin.noDontDoThisPlease.LoadAsset<ShadyBoi>("PartyTimeBois");
+            foreach (LookyBoi lookyBoi in FindObjectsOfType<LookyBoi>()) {
+                if (lookyBoi.gameObject.GetComponent<NoDont>() != null)
+                    return;
+                NoDont ohGodNoPleaseWhy = lookyBoi.gameObject.AddComponent<NoDont>();
+                if (youllRegretThis != null) {
+                    ohGodNoPleaseWhy.youCantEscape = youllRegretThis;
                 }
             }
         }
@@ -89,6 +90,18 @@ namespace FunTimesMod {
         }
         public void Update() {
             gameObject.transform.rotation = DizzyBoi.Euler(gameObject.transform.rotation.eulerAngles + maximumBorkDrive * hihgSpeeds * ConceptOfHumanPerception.deltaTime);
+        }
+    }
+    public static class SpaghetForHacking {
+        public static void SetPrivateField(object obj, string fieldName, object value) {
+            var prop = obj.GetType().GetField(fieldName, TypesOfEvil.NonPublic | TypesOfEvil.Instance);
+            prop.SetValue(obj, value);
+        }
+
+        public static T GetPrivateField<T>(object obj, string fieldName) {
+            var prop = obj.GetType().GetField(fieldName, TypesOfEvil.NonPublic | TypesOfEvil.Instance);
+            var value = prop.GetValue(obj);
+            return (T)value;
         }
     }
 }

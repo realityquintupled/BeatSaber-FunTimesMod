@@ -77,7 +77,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ThisIsAMistake.bundle" />
+    <EmbeddedResource Include="HowItFeelsToDoAcid" />
+    <None Include="HowItFeelsToDoAcidOld" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
