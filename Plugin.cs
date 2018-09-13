@@ -10,12 +10,10 @@ using LazyBoi = UnityEngine.WaitForSeconds;
 using LoadExampleOfBadOrganizationMode = UnityEngine.SceneManagement.LoadSceneMode;
 using LookyBoi = UnityEngine.Camera;
 using LumpyBoi = UnityEngine.MeshRenderer;
-using MonoCantNameGoodly = UnityEngine.Object;
 using PointyBoi = UnityEngine.Vector3;
 using ShadyBoi = UnityEngine.Shader;
 using Spaghetti = System.Reflection.Assembly;
 using Thot = UnityEngine.GameObject;
-using TypesOfEvil = System.Reflection.BindingFlags;
 using UndecisiveBoi = UnityEngine.Random;
 
 namespace FunTimesMod {
@@ -90,18 +88,6 @@ namespace FunTimesMod {
         }
         public void Update() {
             gameObject.transform.rotation = DizzyBoi.Euler(gameObject.transform.rotation.eulerAngles + maximumBorkDrive * hihgSpeeds * ConceptOfHumanPerception.deltaTime);
-        }
-    }
-    public static class SpaghetForHacking {
-        public static void SetPrivateField(object obj, string fieldName, object value) {
-            var prop = obj.GetType().GetField(fieldName, TypesOfEvil.NonPublic | TypesOfEvil.Instance);
-            prop.SetValue(obj, value);
-        }
-
-        public static T GetPrivateField<T>(object obj, string fieldName) {
-            var prop = obj.GetType().GetField(fieldName, TypesOfEvil.NonPublic | TypesOfEvil.Instance);
-            var value = prop.GetValue(obj);
-            return (T)value;
         }
     }
 }
