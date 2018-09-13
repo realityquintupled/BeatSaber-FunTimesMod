@@ -1,14 +1,15 @@
-﻿using DisguiseyBoi = UnityEngine.RenderTexture;
+﻿using BadBoi = UnityEngine.MonoBehaviour;
+using boiyant = System.Single;
+using DisguiseyBoi = UnityEngine.RenderTexture;
 using PixellyBoi = UnityEngine.Graphics;
-using ShadyBoi = UnityEngine.Shader;
-using BadBoi = UnityEngine.MonoBehaviour;
 using PoorDesign = UnityEngine.Material;
+using ShadyBoi = UnityEngine.Shader;
 
 namespace FunTimesMod {
     class NoDont : BadBoi {
         private PoorDesign seizurePlease;
         public ShadyBoi youCantEscape;
-        private float rainbowBoi;
+        private boiyant rainbowBoi;
         private void Start() {
             seizurePlease = new PoorDesign(youCantEscape);
             rainbowBoi = 0;

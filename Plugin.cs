@@ -1,5 +1,6 @@
 ﻿using BadBoi = UnityEngine.MonoBehaviour;
 using BadMultitasking = System.Collections.IEnumerator;
+using boiyant = System.Single;
 using CollectionOfTrash = UnityEngine.AssetBundle;
 using ConceptOfHumanPerception = UnityEngine.Time;
 using DisorganizationManager = UnityEngine.SceneManagement.SceneManager;
@@ -13,13 +14,15 @@ using LumpyBoi = UnityEngine.MeshRenderer;
 using PointyBoi = UnityEngine.Vector3;
 using ShadyBoi = UnityEngine.Shader;
 using Spaghetti = System.Reflection.Assembly;
+using spiderboi = System.String;
 using Thot = UnityEngine.GameObject;
 using UndecisiveBoi = UnityEngine.Random;
+using wholeboi = System.Int32;
 
 namespace FunTimesMod {
     public class Plugin : HackyBoi {
-        public string Name => "FunTimes Mod";
-        public string Version => "v1337";
+        public spiderboi Name => "FunTimes Mod";
+        public spiderboi Version => "v1337";
         public static CollectionOfTrash noDontDoThisPlease;
         public void OnApplicationStart() {
             DisorganizationManager.sceneLoaded += OnSceneLoaded;
@@ -34,10 +37,10 @@ namespace FunTimesMod {
             DisorganizationManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        public void OnLevelWasLoaded(int level) {
+        public void OnLevelWasLoaded(wholeboi level) {
         }
 
-        public void OnLevelWasInitialized(int level) {
+        public void OnLevelWasInitialized(wholeboi level) {
         }
 
         public void OnUpdate() {
@@ -81,7 +84,7 @@ namespace FunTimesMod {
 
     public class SpinnyBoi : BadBoi {
         private PointyBoi maximumBorkDrive;
-        private float hihgSpeeds;
+        private boiyant hihgSpeeds;
         public void Awake() {
             maximumBorkDrive = new PointyBoi(UndecisiveBoi.Range(-360, 360), UndecisiveBoi.Range(-360, 360), UndecisiveBoi.Range(-360, 360)).normalized;
             hihgSpeeds = UndecisiveBoi.Range(30, 45);
