@@ -8,9 +8,11 @@ using ShadyBoi = UnityEngine.Shader;
 namespace FunTimesMod {
     class NoDont : BadBoi {
         private PoorDesign seizurePlease;
-        public ShadyBoi youCantEscape;
+        private ShadyBoi youCantEscape;
         private boiyant rainbowBoi;
-        private void Start() {
+        private void Awake()
+        {
+            youCantEscape = Plugin.youllRegretThis;
             seizurePlease = new PoorDesign(youCantEscape);
             rainbowBoi = 0;
         }
